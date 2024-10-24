@@ -7,10 +7,16 @@ echo '<div class="sidenav" id="sidenav">
         <a href="contact.php">Contact</a>';
         if ($_SESSION['type'] == "admin" || $_SESSION['type'] == "eigenaar") {
             echo '<a href="admin.php">Admin Panel</a>';
-        } else {
+        } 
+        else if ($_SESSION['type'] == "klant") {
+            echo '';
+        }
+        
+        else {
         // Link naar login voor niet-ingelogde gebruikers
         echo '<a href="login.php">Login</a>';
-    }
+        }
+    
 // Controleer of de gebruiker is ingelogd en wat voor type gebruiker het is
 if (isset($_SESSION['type']) && ($_SESSION['type'] == "admin" || $_SESSION['type'] == "eigenaar" || $_SESSION['type'] == "klant")) {
     // Link naar profiel en uitloggen voor ingelogde gebruikers
